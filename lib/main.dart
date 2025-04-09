@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-// Importamos las pantallas de menú
 import 'menu1.dart';
 import 'menu2.dart';
 import 'menu3.dart';
@@ -8,18 +7,35 @@ import 'menu5.dart';
 import 'menu6.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-    
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Fake Tuiiiiter',
-      // Esta es la pantalla inicial
+      title: 'trabajo desarrollo 2 movil',
       initialRoute: '/menu1',
+      // Definimos el tema global de la aplicación
+      theme: ThemeData(
+        brightness: Brightness.dark, // Esto ya aplica un estilo oscuro
+        scaffoldBackgroundColor: Colors.black, // Fondo negro para el Scaffold
+        appBarTheme: AppBarTheme(
+          backgroundColor: Colors.black, // Fondo negro para el AppBar
+          titleTextStyle: TextStyle(color: Colors.white, fontSize: 20),
+        ),
+       // Actualiza los nombres de las propiedades del TextTheme
+        textTheme: TextTheme(
+          bodyLarge: TextStyle(color: Colors.white), // Remplaza bodyText1
+          bodyMedium: TextStyle(color: Colors.white), // Remplaza bodyText2
+          titleLarge: TextStyle(color: Colors.white),  // Remplaza headline6
+        ),
+        bottomNavigationBarTheme: BottomNavigationBarThemeData(
+          backgroundColor: Colors.black, // Fondo negro para el BottomNavigationBar
+          selectedItemColor: Colors.white, // Elemento seleccionado en blanco
+          unselectedItemColor: Colors.white70, // Elemento no seleccionado en gris claro
+        ),
+      ),
       routes: {
         '/menu1': (context) => const Menu1Page(),
         '/menu2': (context) => const Menu2Page(),

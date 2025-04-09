@@ -43,39 +43,88 @@ class BasePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Fake Tuiiiiter'), // aqui cambiamos el nombre de la app
+        title: const Text('trabajo desarrollo 2 comp_movil'), // aqui cambiamos el nombre de la app
       ),
       body: body,
-      bottomNavigationBar: BottomNavigationBar(
+
+        // Botón flotante global: aparecerá en todas las pantallas que usen BasePage.
+        floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          // Aquí defines la acción global, por ejemplo, puede ser abrir un formulario,
+          // navegar a una pantalla especial o lo que requieras.
+          // En este ejemplo simplemente imprime un mensaje en consola.
+          print('Botón flotante global presionado');
+        },
+        tooltip: 'Acción Global',
+        backgroundColor: Colors.blue,
+        shape: CircleBorder(
+          side: BorderSide(color: const Color.fromARGB(33, 255, 255, 255), width: 0.1), // Borde blanco
+        ),
+        child: const Icon(Icons.send),
+        
+      ),
+
+
+        // Envolvemos el BottomNavigationBar en un Container con un borde superior.
+        bottomNavigationBar: Container(
+        decoration: const BoxDecoration(
+          // aqui defines el borde
+          border: Border(
+            top: BorderSide(color: Color.fromARGB(55, 158, 158, 158), width: 0.1),
+          ),
+        ),
+
+
+        child: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         currentIndex: currentIndex,
         onTap: (index) => _onItemTapped(context, index),
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(Icons.looks_one),
-            label: 'Menu1',
+            icon: Padding(
+              padding: EdgeInsets.only(bottom: 1), 
+              child: Icon(Icons.home, size: 30),
+            ),
+            label: '',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.looks_two),
-            label: 'Menu2',
+            icon: Padding(
+              padding: EdgeInsets.only(bottom: 1), 
+              child: Icon(Icons.search, size: 30),
+            ),
+            label: '',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.looks_3),
-            label: 'Menu3',
+            icon: Padding(
+              padding: EdgeInsets.only(bottom: 1), 
+              child: Icon(Icons.star, size: 30),
+            ),
+            label: '',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.looks_4),
-            label: 'Menu4',
+            icon: Padding(
+              padding: EdgeInsets.only(bottom: 1), 
+              child: Icon(Icons.group, size: 30),
+            ),
+            label: '',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.looks_5),
-            label: 'Menu5',
+            icon: Padding(
+              padding: EdgeInsets.only(bottom: 1), 
+              child: Icon(Icons.notifications, size: 30),
+            ),
+            label: '',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.looks_6),
-            label: 'Menu6',
+            icon: Padding(
+              padding: EdgeInsets.only(bottom: 1), 
+              child: Icon(Icons.message, size: 30),
+            ),
+            label: '',
           ),
+          
         ],
+      ),
       ),
     );
   }
