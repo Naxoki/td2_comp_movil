@@ -10,7 +10,7 @@ class Menu2Page extends StatelessWidget {
       currentIndex: 1, // Indica que Menu2 está seleccionado.
       body: const Center(
         child: Text(
-          'Contenido del Search',
+          'Contenido del Searchhh',
           style: TextStyle(fontSize: 24),
         ),
       ),
