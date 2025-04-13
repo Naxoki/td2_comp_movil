@@ -1,32 +1,47 @@
 import 'package:flutter/material.dart';
 import 'widgets/base_page.dart';
+import 'widgets/custom_bar_conbuscador.dart';
+import 'widgets/trend_item.dart';
 
 class Menu2Page extends StatelessWidget {
   const Menu2Page({Key? key}) : super(key: key);
+
+  static const List<Map<String, String?>> _trendData = [
+    {'title': '#Lanzamiento Nintendo Switch 2', 'posts': '1.272 publicaciones'},
+    {'title': '#ELDEN RING Shadow of the Erdtree', 'posts': '4.438 publicaciones'},
+    {'title': '#ELDEN RING NIGHTREIGN', 'posts': '2.847 publicaciones'},
+    {'title': '#Temblor jaja', 'posts': null},
+    {'title': '#Michis', 'posts': '12,6 mil publicaciones'},
+    {'title': '#Conmebol', 'posts': '1.337 publicaciones'},
+  ];
 
   @override
   Widget build(BuildContext context) {
     return BasePage(
       currentIndex: 1,
-      appBar: AppBar(
-        backgroundColor: Colors.black,
-        elevation: 0,
-        title: const _TopBar(),
-      ),
+      appBar: customAppBarConBuscador(),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const _TabsBar(),
+          const _TabsRow(),
           Expanded(
-            child: ListView(
-              children: const [
-                TrendItem(title: 'Lago Ranco', posts: '1.272 publicaciones'),
-                TrendItem(title: 'Egipto', posts: '4.438 publicaciones'),
-                TrendItem(title: 'Cavada', posts: '2.847 publicaciones'),
-                TrendItem(title: '#Sismo'),
-                TrendItem(title: 'Murieron', posts: '12,6 mil publicaciones'),
-                TrendItem(title: 'Monsalve', posts: '1.337 publicaciones'),
-              ],
+            child: ListView.builder(
+              padding: const EdgeInsets.only(top: 12, bottom: 24),
+              itemCount: _trendData.length * 2 - 1, // ítems + divisores
+              itemBuilder: (context, index) {
+                if (index.isOdd) {
+                  return const Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 16),
+                    child: Divider(
+                      color: Colors.white24,
+                      thickness: 0.6,
+                      height: 1,
+                    ),
+                  );
+                }
+                final item = _trendData[index ~/ 2];
+                return TrendItem(title: item['title']!, posts: item['posts']);
+              },
             ),
           ),
         ],
@@ -35,44 +50,13 @@ class Menu2Page extends StatelessWidget {
   }
 }
 
-class _TopBar extends StatelessWidget {
-  const _TopBar({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      children: [
-        const CircleAvatar(
-          radius: 18,
-          backgroundImage: AssetImage('assets/profile.jpg'),
-        ),
-        const SizedBox(width: 12),
-        Expanded(
-          child: Container(
-            height: 36,
-            padding: const EdgeInsets.symmetric(horizontal: 12),
-            decoration: BoxDecoration(
-              color: Colors.grey[900],
-              borderRadius: BorderRadius.circular(24),
-            ),
-            alignment: Alignment.centerLeft,
-            child: const Text('Buscar', style: TextStyle(color: Colors.grey)),
-          ),
-        ),
-        const SizedBox(width: 12),
-        const Icon(Icons.settings, color: Colors.white),
-      ],
-    );
-  }
-}
-
-class _TabsBar extends StatelessWidget {
-  const _TabsBar({Key? key}) : super(key: key);
+class _TabsRow extends StatelessWidget {
+  const _TabsRow({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return const Padding(
-      padding: EdgeInsets.only(top: 8, left: 12, bottom: 8),
+      padding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
       child: SingleChildScrollView(
         scrollDirection: Axis.horizontal,
         child: Row(
@@ -98,7 +82,7 @@ class _TabItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+      padding: const EdgeInsets.only(right: 16),
       child: Column(
         children: [
           Text(
@@ -115,31 +99,6 @@ class _TabItem extends StatelessWidget {
               width: 24,
               color: Colors.blue,
             ),
-        ],
-      ),
-    );
-  }
-}
-
-class TrendItem extends StatelessWidget {
-  final String title;
-  final String? posts;
-
-  const TrendItem({Key? key, required this.title, this.posts}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          if (posts != null)
-            Text(posts!, style: const TextStyle(color: Colors.grey, fontSize: 14)),
-          Text(title, style: const TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold)),
-          const SizedBox(height: 4),
-          const Text('Tendencia en Chile', style: TextStyle(color: Colors.grey, fontSize: 13)),
-          const Divider(color: Colors.grey, thickness: 0.4),
         ],
       ),
     );
