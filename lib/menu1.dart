@@ -31,7 +31,7 @@ class Menu1Page extends StatelessWidget {
                       // Acción del Botón 1
                       print('Botón 1 presionado');
                     },
-                    child: const Text('Botón 1'),
+                    child: const Text('para ti'),
                   ),
                 ),
                 const SizedBox(width: 8.0),
@@ -42,7 +42,7 @@ class Menu1Page extends StatelessWidget {
                       // Acción del Botón 2
                       print('Botón 2 presionado');
                     },
-                    child: const Text('Botón 2'),
+                    child: const Text('siguiendo'),
                   ),
                 ),
               ],
@@ -52,31 +52,36 @@ class Menu1Page extends StatelessWidget {
           // Noticias (puedes agregar más NewsCard según necesites)
           NewsCard(
             leftIcon: Icons.account_circle,
-            title: 'Otra Noticia',
+            title: 'Elden Ring',
+            rightIcon: Icons.more_horiz,
+            description: 'juego pa weno oeeee',
+            imageUrl: 'https://wallpapers.com/images/hd/elden-ring-1080p-gaming-2hz135lvlbwj5oke.jpg',
+           backgroundColor: Color.fromARGB(255, 0, 0, 0), // Aquí defines el color de fondo deseado.
+          ),
+          NewsCard(
+            leftIcon: Icons.account_circle,
+            title: 'Letme_solo',
             rightIcon: Icons.more_horiz,
             description: 'Descripción de otra noticia.',
             imageUrl: 'https://via.placeholder.com/400x200',
-            backgroundColor: const Color.fromARGB(
-              255,
-              0,
-              0,
-              0,
-            ), // Aquí defines el color de fondo deseado.
+            backgroundColor: Color.fromARGB(255, 0, 0, 0), // Aquí defines el color de fondo deseado.
           ),
-          NewsCard(
+           NewsCard(
             leftIcon: Icons.account_circle,
             title: 'Otra Noticia',
             rightIcon: Icons.more_horiz,
             description: 'Descripción de otra noticia.',
             imageUrl: 'https://via.placeholder.com/400x200',
-            backgroundColor: const Color.fromARGB(
-              255,
-              0,
-              0,
-              0,
-            ), // Aquí defines el color de fondo deseado.
-          ),
+            backgroundColor: Color.fromARGB(255, 0, 0, 0), // Aquí defines el color de fondo deseado.
+          ),          
         ],
+=======
+      body: const Center(
+        child: Text(
+          'Contenido del Menu 1',
+          style: TextStyle(fontSize: 24),
+        ),
+>>>>>>> 443d3cb8801674c02979d932093791db6f37f029
       ),
     );
   }
