@@ -6,6 +6,8 @@ import 'menu4.dart';
 import 'menu5.dart';
 import 'menu6.dart';
 import 'menu7.dart';
+import 'menu8.dart';
+import 'menu9.dart';
 
 void main() {
   runApp(MyApp());
@@ -45,6 +47,8 @@ class MyApp extends StatelessWidget {
         '/menu5': (context) => const Menu5Page(),
         '/menu6': (context) => const Menu6Page(),
         '/menu7': (context) => const Menu7Page(),
+        '/menu8': (context) => const Menu8Page(),
+        '/menu9': (context) => const Menu9Page(),
       },
     );
   }

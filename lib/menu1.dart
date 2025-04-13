@@ -41,6 +41,7 @@ class _Menu1PageState extends State<Menu1Page> {
           const SizedBox(height: 8.0),
           // Ejemplos de NewsCard para mostrar contenido.
           NewsCard(
+            user: '@naxoki - 1d',
             leftIcon: Icons.account_circle,
             title: 'Letme_solo',
             rightIcon: Icons.more_horiz,
@@ -51,6 +52,7 @@ class _Menu1PageState extends State<Menu1Page> {
             backgroundColor: const Color.fromARGB(255, 0, 0, 0),
           ),
           NewsCard(
+            user: '@naxoki - 2d',
             leftIcon: Icons.account_circle,
             title: 'Letme_solo',
             rightIcon: Icons.more_horiz,
@@ -61,6 +63,7 @@ class _Menu1PageState extends State<Menu1Page> {
             backgroundColor: const Color.fromARGB(255, 0, 0, 0),
           ),
           NewsCard(
+            user: '@naxoki - 23h',
             leftIcon: Icons.account_circle,
             title: 'Letme_solo',
             rightIcon: Icons.more_horiz,

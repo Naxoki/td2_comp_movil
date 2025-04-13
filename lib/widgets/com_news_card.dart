@@ -1,18 +1,19 @@
 import 'package:flutter/material.dart';
 
-class NewsCard extends StatelessWidget {
+class NewsCard1 extends StatelessWidget {
   // Parámetros existentes
   final IconData leftIcon;
   final String title;
-  final String user; // Nuevo parámetro para el nombre de usuario
+  final String user; // Nombre de usuario
   final IconData rightIcon;
   final String description;
   final String imageUrl;
+  final String comunidad; // Nombre de la comunidad
   
-  // Nuevo parámetro para el color de fondo con un valor por defecto (Colors.white)
+  // Parámetro para el color de fondo, con valor por defecto (negro)
   final Color backgroundColor;
 
-  const NewsCard({
+  const NewsCard1({
     Key? key,
     required this.leftIcon,
     required this.title,
@@ -20,6 +21,8 @@ class NewsCard extends StatelessWidget {
     required this.rightIcon,
     required this.description,
     required this.imageUrl,
+    required this.comunidad,
+
     this.backgroundColor = const Color.fromARGB(255, 0, 0, 0),
   }) : super(key: key);
 
@@ -29,7 +32,6 @@ class NewsCard extends StatelessWidget {
       margin: const EdgeInsets.all(8.0),
       padding: const EdgeInsets.all(12.0),
       decoration: BoxDecoration(
-        // Usamos el parámetro backgroundColor en lugar de un valor fijo.
         color: backgroundColor,
         borderRadius: BorderRadius.circular(8.0),
         boxShadow: [
@@ -43,7 +45,23 @@ class NewsCard extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Fila superior: icono izquierdo, columna con title y user, y icono derecho.
+          // Nueva fila para mostrar el icono y texto "Comunidad"
+          Row(
+            children: [
+              Icon(Icons.group, color: Colors.white), // Icono de comunidad
+              const SizedBox(width: 8.0),
+              Text(
+                comunidad,
+                style: const TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 14,
+                  color: Colors.white,
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 8.0),
+          // Fila superior: icono izquierdo, title y user (en una Row), y icono derecho.
           Row(
             children: [
               Icon(leftIcon, color: Colors.blue),
@@ -52,8 +70,6 @@ class NewsCard extends StatelessWidget {
                 child: Align(
                   alignment: Alignment.centerLeft,
                   child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisSize: MainAxisSize.min,
                     children: [
                       Text(
                         title,
@@ -62,7 +78,7 @@ class NewsCard extends StatelessWidget {
                           fontSize: 16,
                         ),
                       ),
-                      const SizedBox(width: 8),// aqui separo title y usuer
+                      const SizedBox(width: 16.0),
                       Text(
                         user,
                         style: const TextStyle(

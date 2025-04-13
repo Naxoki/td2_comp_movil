@@ -40,6 +40,7 @@ class _Menu7PageState extends State<Menu7Page> {
           const SizedBox(height: 8.0),
           // Ejemplo de NewsCard para mostrar contenido en Menu7.
           NewsCard(
+            user: '@naxoki - 1h',
             leftIcon: Icons.account_circle,
             title: 'Naxoki',
             rightIcon: Icons.more_horiz,
@@ -47,6 +48,17 @@ class _Menu7PageState extends State<Menu7Page> {
                 'Eres Geralt de Rivia, cazador de monstruos. En un continente devastado por la guerra e infestado de criaturas, tu misión es encontrar a Ciri, la niña de la profecía, un arma viviente que puede alterar el mundo tal y como lo conocemos.',
             imageUrl:
                 'https://wallpapercat.com/w/full/f/3/f/5549-3840x2160-desktop-4k-the-witcher-game-wallpaper-photo.jpg',
+            backgroundColor: const Color.fromARGB(255, 0, 0, 0),
+          ),
+          NewsCard(
+            user: '@naxoki - 2h',
+            leftIcon: Icons.account_circle,
+            title: 'Naxoki',
+            rightIcon: Icons.more_horiz,
+            description:
+                'Eres Geralt de Rivia, cazador de monstruos. En un continente devastado por la guerra e infestado de criaturas, tu misión es encontrar a Ciri, la niña de la profecía, un arma viviente que puede alterar el mundo tal y como lo conocemos.',
+            imageUrl:
+                'null',
             backgroundColor: const Color.fromARGB(255, 0, 0, 0),
           ),
         ],
