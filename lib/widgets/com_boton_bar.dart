@@ -55,7 +55,7 @@ class CustomButtonBar extends StatelessWidget {
                 onPressed: () {
                   onButtonSelected(0);
                 },
-                child: const Text('inicio'),
+                child: const Text('Inicio'),
               ),
             ),
           ),
@@ -87,7 +87,7 @@ class CustomButtonBar extends StatelessWidget {
                 onPressed: () {
                   onButtonSelected(1);
                 },
-                child: const Text('explorar'),
+                child: const Text('Explorar'),
               ),
             ),
           ),
