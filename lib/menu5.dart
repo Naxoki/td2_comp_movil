@@ -91,6 +91,13 @@ class Menu5Page extends StatelessWidget {
             time: '10:30 AM',
             message: 'Tienes un nuevo mensaje en tu buzón de entrada.',
           ),
+          // Ejemplo de primera notificación
+          NotificationCard(
+            icon: Icons.notifications,
+            title: 'Notificación Importante',
+            time: '10:30 AM',
+            message: 'Tienes un nuevo mensaje en tu buzón de entrada.',
+          ),
         ],
       ),
     );
