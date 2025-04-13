@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'base_page.dart';
-import 'custom_app_bar.dart';
-import 'news_card.dart';
 
 class Menu1Page extends StatelessWidget {
   const Menu1Page({Key? key}) : super(key: key);
@@ -10,6 +8,7 @@ class Menu1Page extends StatelessWidget {
   Widget build(BuildContext context) {
     return BasePage(
       currentIndex: 0, // Indica que Menu1 está seleccionado.
+<<<<<<< HEAD
       appBar: customAppBar(''),
       body: ListView(
         children: [
@@ -70,8 +69,14 @@ class Menu1Page extends StatelessWidget {
             backgroundColor: Color.fromARGB(255, 0, 0, 0), // Aquí defines el color de fondo deseado.
           ),          
         ],
+=======
+      body: const Center(
+        child: Text(
+          'Contenido del Menu 1',
+          style: TextStyle(fontSize: 24),
+        ),
+>>>>>>> 443d3cb8801674c02979d932093791db6f37f029
       ),
     );
   }
 }
-
