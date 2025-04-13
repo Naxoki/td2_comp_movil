@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
 
 class BasePage extends StatelessWidget {
-  // Índice del menú seleccionado (del 0 al 5)
   final int currentIndex;
-  // Contenido específico de la pantalla
   final Widget body;
+  // Agregamos un parámetro opcional para el AppBar.
+  final PreferredSizeWidget? appBar;
 
   const BasePage({
     Key? key,
     required this.currentIndex,
     required this.body,
+    this.appBar,
   }) : super(key: key);
 
-  // Función para gestionar la navegación cuando se toca un elemento del menú inferior.
+  // Función para manejar la navegación en el BottomNavigationBar.
   void _onItemTapped(BuildContext context, int index) {
-    // Usamos Navigator.pushReplacementNamed para reemplazar la pantalla actual.
     switch (index) {
       case 0:
         Navigator.pushReplacementNamed(context, '/menu1');
@@ -42,45 +42,35 @@ class BasePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('trabajo desarrollo 2 comp_movil'), // aqui cambiamos el nombre de la app
-      ),
+      // Si se pasa un appBar personalizado, se usará; de lo contrario, se genera uno por defecto.
+      appBar: appBar ??
+          AppBar(
+            title: const Text('Aplicación con Menú Inferior'),
+          ),
       body: body,
-
-        // Botón flotante global: aparecerá en todas las pantallas que usen BasePage.
-        floatingActionButton: FloatingActionButton(
+      floatingActionButton: FloatingActionButton(
         onPressed: () {
-          // Aquí defines la acción global, por ejemplo, puede ser abrir un formulario,
-          // navegar a una pantalla especial o lo que requieras.
-          // En este ejemplo simplemente imprime un mensaje en consola.
-          print('Botón flotante global presionado');
+          // Aquí defines la acción global del FAB.
+          print('FAB global presionado');
         },
         tooltip: 'Acción Global',
-        backgroundColor: Colors.blue,
-        shape: CircleBorder(
-          side: BorderSide(color: const Color.fromARGB(33, 255, 255, 255), width: 0.1), // Borde blanco
-        ),
-        child: const Icon(Icons.send),
-        
+        backgroundColor: const Color.fromARGB(255, 49, 176, 250),
+        shape: CircleBorder(side: BorderSide(color: const Color.fromARGB(0, 255, 255, 255), width: 0.2)),
+        child: const Icon(Icons.add),
       ),
-
-
-        // Envolvemos el BottomNavigationBar en un Container con un borde superior.
-        bottomNavigationBar: Container(
+      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
+      bottomNavigationBar: Container(
         decoration: const BoxDecoration(
-          // aqui defines el borde
           border: Border(
-            top: BorderSide(color: Color.fromARGB(55, 158, 158, 158), width: 0.1),
+            top: BorderSide(color: Colors.grey, width: 1),
           ),
         ),
-
-
         child: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        currentIndex: currentIndex,
-        onTap: (index) => _onItemTapped(context, index),
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
+          type: BottomNavigationBarType.fixed,
+          currentIndex: currentIndex,
+          onTap: (index) => _onItemTapped(context, index),
+          items: const <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
             icon: Padding(
               padding: EdgeInsets.only(bottom: 1), 
               child: Icon(Icons.home, size: 30),
@@ -120,11 +110,10 @@ class BasePage extends StatelessWidget {
               padding: EdgeInsets.only(bottom: 1), 
               child: Icon(Icons.message, size: 30),
             ),
-            label: '',
-          ),
-          
-        ],
-      ),
+              label: '',
+            ),
+          ],
+        ),
       ),
     );
   }
