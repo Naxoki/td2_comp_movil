@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'widgets/base_page.dart';
 import 'widgets/notificaciones_Bar.dart';
 import 'widgets/notificaciones1.dart'; // Aquí se importa el nuevo NotificationCard
+import 'widgets/notificacionesbutton.dart';
 
 class Menu5Page extends StatelessWidget {
   const Menu5Page({Key? key}) : super(key: key);
@@ -13,62 +14,29 @@ class Menu5Page extends StatelessWidget {
       appBar: notificacionBar('Notificaciones'),
       body: ListView(
         children: [
-          Container(
-            color: const Color.fromARGB(255, 0, 0, 0),
-            padding: const EdgeInsets.symmetric(
-              vertical: 8.0,
-              horizontal: 16.0,
-            ),
-            child: Row(
-              children: [
-                Expanded(
-                  child: ElevatedButton(
-                    onPressed: () {
-                      print('Botón Todas presionado');
-                    },
-                    child: const Text('Todas'),
-                  ),
-                ),
-                const SizedBox(width: 8.0),
-                Expanded(
-                  child: ElevatedButton(
-                    onPressed: () {
-                      print('Botón Verificado presionado');
-                    },
-                    child: const Text('Verificado'),
-                  ),
-                ),
-                const SizedBox(width: 8.0),
-                Expanded(
-                  child: ElevatedButton(
-                    onPressed: () {
-                      print('Botón Menciones presionado');
-                    },
-                    child: const Text('Menciones'),
-                  ),
-                ),
-              ],
-            ),
-          ),
+          const NotificationButtons(),
           const SizedBox(height: 8.0),
 
-          // Tarjetas de notificación usando el nuevo NotificationCard
+          // Usar NotificationCard para cada notificación
           NotificationCard(
             icon: Icons.notifications_active,
             title: 'Se detectó un nuevo inicio de sesión',
             time: '08:17 AM',
             message:
                 'Hubo un inicio de sesión en tu cuenta @88Zoro desde un dispositivo nuevo.',
-            onMarkRead: () => _showNotificationDetails(context, 'login'),
+            onTap:
+                () => _showNotificationDetails(
+                  context,
+                  'login',
+                ), // Mostrar detalles
             onDismiss: () => print('Notificación de inicio descartada'),
           ),
           NotificationCard(
             icon: Icons.notification_add_sharp,
-            title: 'Cambio exitoso de su pasword',
+            title: 'Cambio exitoso de su contraseña',
             time: '10:30 AM',
             message: 'Se ha cambiado correctamente su contraseña.',
-            onMarkRead:
-                () => _showNotificationDetails(context, 'password_change'),
+            onTap: () => _showNotificationDetails(context, 'password_change'),
             onDismiss: () => print('Notificación de contraseña descartada'),
           ),
           NotificationCard(
@@ -76,7 +44,7 @@ class Menu5Page extends StatelessWidget {
             title: 'Sanción en el Monumental',
             time: '11:13 AM',
             message: '@CSaavedra subió una nueva publicación.',
-            onMarkRead: () => _showNotificationDetails(context, 'Noticia'),
+            onTap: () => _showNotificationDetails(context, 'Noticia'),
             onDismiss: () => print('Notificación de noticia descartada'),
           ),
           NotificationCard(
@@ -84,7 +52,7 @@ class Menu5Page extends StatelessWidget {
             title: 'Notificación Importante',
             time: '12:10 AM',
             message: 'Tienes un nuevo mensaje en tu buzón de entrada.',
-            onMarkRead: () => _showNotificationDetails(context, 'message'),
+            onTap: () => _showNotificationDetails(context, 'message'),
             onDismiss: () => print('Notificación de mensaje descartada'),
           ),
         ],
