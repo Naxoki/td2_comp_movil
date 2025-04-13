@@ -53,7 +53,7 @@ class Menu1Page extends StatelessWidget {
             imageUrl: 'https://wallpapers.com/images/hd/elden-ring-1080p-gaming-2hz135lvlbwj5oke.jpg',
            backgroundColor: Color.fromARGB(255, 0, 0, 0), // Aquí defines el color de fondo deseado.
           ),
-            NewsCard(
+          NewsCard(
             leftIcon: Icons.account_circle,
             title: 'Otra Noticia',
             rightIcon: Icons.more_horiz,
@@ -61,6 +61,14 @@ class Menu1Page extends StatelessWidget {
             imageUrl: 'https://via.placeholder.com/400x200',
             backgroundColor: Color.fromARGB(255, 0, 0, 0), // Aquí defines el color de fondo deseado.
           ),
+           NewsCard(
+            leftIcon: Icons.account_circle,
+            title: 'Otra Noticia',
+            rightIcon: Icons.more_horiz,
+            description: 'Descripción de otra noticia.',
+            imageUrl: 'https://via.placeholder.com/400x200',
+            backgroundColor: Color.fromARGB(255, 0, 0, 0), // Aquí defines el color de fondo deseado.
+          ),          
         ],
       ),
     );
