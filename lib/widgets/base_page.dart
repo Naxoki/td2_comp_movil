@@ -34,6 +34,9 @@ class BasePage extends StatelessWidget {
       case 5:
         Navigator.pushReplacementNamed(context, '/menu6');
         break;
+      case 6:
+        Navigator.pushReplacementNamed(context, '/menu7');
+        break;  
       default:
         Navigator.pushReplacementNamed(context, '/menu1');
     }
@@ -53,7 +56,7 @@ class BasePage extends StatelessWidget {
           // Aquí defines la acción global del FAB.
           print('FAB global presionado');
         },
-        tooltip: 'Acción Global',
+        tooltip: 'Nuevo mensaje',
         backgroundColor: const Color.fromARGB(255, 49, 176, 250),
         shape: CircleBorder(side: BorderSide(color: const Color.fromARGB(0, 255, 255, 255), width: 0.2)),
         child: const Icon(Icons.add),
@@ -66,6 +69,7 @@ class BasePage extends StatelessWidget {
           ),
         ),
         child: BottomNavigationBar(
+          
           type: BottomNavigationBarType.fixed,
           currentIndex: currentIndex,
           onTap: (index) => _onItemTapped(context, index),
