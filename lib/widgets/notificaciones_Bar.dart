@@ -19,7 +19,7 @@ PreferredSizeWidget notificacionBar(String title) {
       IconButton(
         icon: const Icon(Icons.settings),
         onPressed: () {
-          print('configuraciuones');
+          print('configuraciones');
         },
       ),
     ],
