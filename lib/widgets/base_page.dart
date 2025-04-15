@@ -32,17 +32,9 @@ class BasePage extends StatelessWidget {
         Navigator.pushReplacementNamed(context, '/menu5');
         break;
       case 5:
-        Navigator.pushReplacementNamed(context, '/menu8');
+        Navigator.pushReplacementNamed(context, '/menu6');
         break;
-      case 6:
-        Navigator.pushReplacementNamed(context, '/menu7');
-        break;
-      case 7:
-        Navigator.pushReplacementNamed(context, '/menu8'); // limpiar
-        break;
-      case 8:
-        Navigator.pushReplacementNamed(context, '/menu8');//limpiar
-        break;  
+      
       default:
         Navigator.pushReplacementNamed(context, '/menu1');
     }

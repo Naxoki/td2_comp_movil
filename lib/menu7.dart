@@ -56,9 +56,9 @@ class _Menu7PageState extends State<Menu7Page> {
             title: 'Naxoki',
             rightIcon: Icons.more_horiz,
             description:
-                'Eres Geralt de Rivia, cazador de monstruos. En un continente devastado por la guerra e infestado de criaturas, tu misión es encontrar a Ciri, la niña de la profecía, un arma viviente que puede alterar el mundo tal y como lo conocemos.',
+                'La última línea ofensiva de la galaxia. Enlístate en los Helldivers y únete a la lucha por la libertad en una galaxia hostil en este juego de disparos en tercera persona frenético y feroz., un arma viviente que puede alterar el mundo tal y como lo conocemos.',
             imageUrl:
-                'null',
+                'https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/553850/05e5017c5ef814f2f10d790006be2abc3387b959/capsule_616x353.jpg?t=1741137570',
             backgroundColor: const Color.fromARGB(255, 0, 0, 0),
           ),
         ],
